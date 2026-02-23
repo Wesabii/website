@@ -53,7 +53,9 @@
 							
 							<h2>Features</h2>
 							<p>Throughout the two years of work on the project I implemented several core features to the game, though due to the nature of the project feature requirements changed often meaning already implemented features often were cut from the game.</p>
-							<p>Back when the game was aiming to be a top-down real-time action game, I was tasked with implementing the camera for the creature combats. Since the game was targetted at a casual mobile audience we wanted the camera to automatically move to keep the action in frame and give the player one less control to worry about. Using the FOV of the camera and the position values of the combatants you can find the two furthest apart combatants and draw a triangle with the three points as the camera and the two selected combatants. You then find the mid-point between the two combatants and draw a line from there to the camera to split the triangle in half and create two right-triangles. From there you have half the FOV of the camera as the known angle, and half the distance between the two combatants as the opposite edge. Using trig you can then find the adjacent edge which is the distance the camera needs to be to keep the combatants in frame. Adding a small margin to the opposite edge allows the combatants to then sit comfortably in frame.</p>
+							<h3>Dynamic Camera</h3>
+							<p>Back when the game was aiming to be a top-down real-time action game, I was tasked with implementing the camera for the creature combats. Since the game was targetted at a casual mobile audience we wanted the camera to automatically move to keep the action in frame and give the player one less control to worry about.</p>
+							<p>To achieve this, we find the two combatants in the arena which are furthest apart - here p1 and p3 - and place the camera object (point C) directly in between. Then to figure out the boom arm length, we can use the FOV of the camera (θ) and the distance between the two combatants plus a small margin (k) and apply some basic trig.</p>
 							<img src="../images/Dynamic Camera Example.png" alt="">
 							<h2>Refactors</h2>
 							
